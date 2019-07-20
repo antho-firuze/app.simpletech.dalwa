@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".fragment.PortfolioFragment">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:elevation="4dp"
+                android:theme="@style/ToolbarTheme"
+                android:background="@android:color/holo_blue_dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?android:attr/actionBarSize">
+
+            <TextView
+                    android:id="@+id/tv_content"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:text="Saldo"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/avenirnextltpromedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <LinearLayout
+                    android:id="@+id/layout_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <LinearLayout android:padding="10dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:text="Mata Uang :"
+                              android:layout_width="130dp"
+                              android:paddingTop="10dp"
+                              android:layout_height="wrap_content"/>
+
+                    <Spinner android:id="@+id/sp_curr"
+                             style="@style/Widget.AppCompat.Spinner.Underlined"
+                             android:spinnerMode="dropdown"
+                             android:layout_width="match_parent" android:layout_height="40dp"/>
+
+                </LinearLayout>
+
+                <TextView android:padding="10dp"
+                          android:background="@android:color/darker_gray"
+                          android:text="Total Investasi"
+                          android:textSize="16dp"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"/>
+
+                <LinearLayout android:layout_weight="1"
+                              android:padding="10dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="match_parent">
+
+                    <TextView android:text="Nilai Investasi :"
+                              android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:text="Biaya Investasi :"
+                              android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout android:layout_weight="1"
+                              android:padding="10dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="match_parent">
+
+                    <TextView android:text="4,411,186,987.94"
+                              android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:text="4,400,000,000.00"
+                              android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout android:layout_weight="1"
+                              android:padding="10dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="match_parent">
+
+                    <TextView android:text="Laba/Rugi :"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:text="11,186,987.94 (0.25 %)"
+                              android:layout_weight="1"
+                              android:paddingLeft="10dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <TextView android:background="@android:color/darker_gray"
+                          android:layout_width="match_parent"
+                          android:layout_height="1dp"/>
+
+                <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/pieChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        tools:layout_editor_absoluteY="18dp"/>
+
+                <TextView
+                        android:background="@android:color/darker_gray"
+                        android:text="Kepemilikan Reksa Dana"
+                        android:textSize="16dp"
+                        android:padding="10dp"
+                        android:textFontWeight="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

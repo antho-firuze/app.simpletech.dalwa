@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/layout_main"
+              android:padding="8dp"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <LinearLayout android:orientation="vertical"
+                  android:layout_weight="1"
+                  android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <TextView android:id="@+id/tv_name"
+                  android:text="Reksa Dana Avrist Dana Liquid"
+                  android:textStyle="bold"
+                  android:textSize="16dp"
+                  android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:id="@+id/tv_risk"
+                  android:text="(Resiko: Konservatif)"
+                  android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <LinearLayout android:paddingLeft="20sp"
+                      android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <TextView android:id="@+id/tv_curr"
+                    android:text="IDR"
+                      android:textStyle="bold"
+                      android:gravity="center"
+                      android:layout_width="wrap_content" android:layout_height="match_parent"/>
+
+            <TextView android:id="@+id/tv_navperunit"
+                    android:text="1,271.23"
+                      android:textStyle="bold"
+                      android:textSize="22sp"
+                      android:paddingLeft="4dp"
+                      android:paddingRight="4dp"
+                      android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView android:id="@+id/tv_r1d"
+                    android:text="(+3.96%)"
+                      android:textStyle="bold"
+                      android:gravity="center"
+                      android:layout_width="wrap_content" android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="100dp" android:layout_height="match_parent">
+
+        <Button android:text="BELI"
+                android:layout_gravity="center"
+                android:layout_width="match_parent" android:layout_height="50dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

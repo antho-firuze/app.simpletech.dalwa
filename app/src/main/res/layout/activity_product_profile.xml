@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ProductProfileActivity">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:elevation="4dp"
+                android:theme="@style/ToolbarTheme"
+                android:background="@android:color/holo_blue_dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?android:attr/actionBarSize">
+
+            <TextView
+                    android:id="@+id/tv_content"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:text="Profil Produk"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/avenirnextltpromedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout android:paddingLeft="8dp"
+                      android:paddingRight="8dp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+            <LinearLayout android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:paddingTop="4dp"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content">
+
+                <TextView android:id="@+id/tv_name"
+                          android:text="Reksa Dana Avrist Dana Liquid"
+                          android:textStyle="bold"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                    <TextView android:text="Jenis"
+                              android:layout_width="40dp"
+                              android:layout_height="wrap_content"/>
+                    <TextView android:text=":"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"/>
+                    <TextView android:id="@+id/tv_type"
+                              android:text="Pasar Uang"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="4dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+                    <TextView android:text="Resiko"
+                              android:layout_width="50dp"
+                              android:layout_height="wrap_content"/>
+                    <TextView android:text=":"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"/>
+                    <TextView android:id="@+id/tv_risk"
+                              android:text="Konservatif"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="4dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout android:layout_weight="1"
+                          android:layout_width="150dp"
+                          android:layout_height="wrap_content">
+
+                <Button android:id="@+id/btn_subscription"
+                        android:text="Beli"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <android.support.v4.view.ViewPager android:id="@+id/vp_main"
+                                           android:layout_width="match_parent"
+                                           android:layout_height="match_parent">
+
+            <android.support.design.widget.TabLayout android:id="@+id/tabs_main"
+                                                     app:tabIndicatorGravity="top"
+                                                     android:layout_width="match_parent"
+                                                     android:layout_height="wrap_content"></android.support.design.widget.TabLayout>
+
+        </android.support.v4.view.ViewPager>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

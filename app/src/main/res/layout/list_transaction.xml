@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:background="@android:color/darker_gray"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+    <LinearLayout android:orientation="vertical"
+                  android:layout_marginBottom="4dp"
+                  android:background="@android:color/white"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+            <LinearLayout android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:padding="8dp"
+                          android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <TextView android:id="@+id/tv_name"
+                          android:text="AVRIST ADA KAS MUTIARA"
+                          android:textSize="18dp"
+                          android:textStyle="bold"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"/>
+
+                <TextView android:id="@+id/tv_description"
+                        android:text="24-07-2018 Subscription (IDR)"
+                          android:layout_marginTop="8dp"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layoutPembatalan"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:layout_width="150dp" android:layout_height="wrap_content">
+
+                <Button android:id="@+id/btn_cancel"
+                        android:text="BATAL"
+                        android:background="@android:color/holo_red_light"
+                        android:textColor="@android:color/white"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView android:background="@android:color/darker_gray"
+                  android:layout_width="match_parent"
+                  android:layout_height="1dp"/>
+
+        <LinearLayout android:orientation="vertical"
+                      android:padding="8dp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content">
+
+                <LinearLayout android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:text="Nilai :"
+                              android:textStyle="bold"
+                              android:layout_width="50dp"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/tv_value_amount"
+                            android:text="3,000,000,000.00"
+                              android:textAlignment="textEnd"
+                              android:layout_marginRight="8dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:text="Status :"
+                              android:textStyle="bold"
+                              android:textAlignment="textEnd"
+                              android:layout_width="70dp"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/tv_status"
+                            android:text="Pending"
+                              android:textAlignment="center"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content">
+
+                <LinearLayout android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:text="Biaya :"
+                              android:textStyle="bold"
+                              android:layout_width="50dp"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/tv_cost"
+                            android:text="(0.00 %) 0.00"
+                              android:textAlignment="textEnd"
+                              android:layout_marginRight="8dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:text="NAV/Unit :"
+                              android:textAlignment="textEnd"
+                              android:textStyle="bold"
+                              android:layout_width="70dp"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/tv_navperunit"
+                            android:text="1,079.49"
+                              android:textAlignment="textEnd"
+                              android:paddingEnd="8dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content">
+
+                <LinearLayout android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:text="Total :"
+                              android:textStyle="bold"
+                              android:layout_width="50dp"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/tv_total"
+                            android:text="3,000,000,000.00"
+                              android:textAlignment="textEnd"
+                              android:layout_marginRight="8dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:text="Unit :"
+                              android:textAlignment="textEnd"
+                              android:textStyle="bold"
+                              android:layout_width="70dp"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/tv_unit"
+                            android:text="2,779,090.13"
+                              android:textAlignment="textEnd"
+                              android:paddingEnd="8dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView android:id="@+id/linePembayaran"
+                  android:background="@android:color/darker_gray"
+                  android:layout_width="match_parent"
+                  android:layout_height="1dp"/>
+
+        <LinearLayout android:id="@+id/layoutPembayaran"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+            <LinearLayout android:orientation="vertical"
+                          android:padding="8dp"
+                          android:layout_weight="1"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content">
+
+                <TextView android:text="Metode Pembayaran"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"/>
+
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:id="@+id/tv_metode_pembayaran"
+                            android:text="Transfer Bank"
+                              android:layout_width="100dp"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

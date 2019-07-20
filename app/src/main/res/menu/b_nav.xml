@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="BERANDA"/>
+
+    <item
+            android:id="@+id/nav_profile_wali"
+            android:icon="@drawable/ic_person_grey_24dp"
+            android:title="PROFILE WALI"/>
+
+    <item
+            android:id="@+id/nav_profile_santri"
+            android:icon="@drawable/ic_group"
+            android:title="SANTRI"/>
+
+    <item
+            android:id="@+id/nav_faq"
+            android:icon="@drawable/ic_help_black_24dp"
+            android:title="FAQ"/>
+
+</menu>

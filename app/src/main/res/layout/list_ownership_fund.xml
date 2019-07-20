@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:background="@android:color/darker_gray"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+    <LinearLayout android:orientation="vertical"
+                  android:layout_marginBottom="4dp"
+                  android:background="@android:color/white"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+        <LinearLayout android:padding="10dp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+            <TextView android:id="@+id/tv_name"
+                      android:text="AVRIST ADA KAS MUTIARA"
+                      android:textSize="16dp"
+                      android:textStyle="bold"
+                      android:layout_width="250dp"
+                      android:layout_height="wrap_content"/>
+
+            <TextView android:id="@+id/tv_value_percent"
+                    android:text="68.03 %"
+                      android:textSize="16dp"
+                      android:textStyle="bold"
+                      android:paddingLeft="6dp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+            <LinearLayout android:orientation="vertical"
+                          android:layout_width="150dp"
+                          android:layout_gravity="center"
+                          android:gravity="center"
+                          android:textAlignment="center"
+                          android:layout_height="wrap_content">
+
+                <Button android:id="@+id/btn_subscription"
+                        android:text="BELI LAGI"
+                        android:textColor="@android:color/white"
+                        android:background="@android:color/holo_green_light"
+                        android:layout_marginBottom="4dp"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+
+                <Button android:id="@+id/btn_redeem"
+                        android:text="JUAL"
+                        android:textColor="@android:color/white"
+                        android:background="@android:color/holo_blue_bright"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout android:orientation="vertical"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content">
+
+                <LinearLayout android:layout_weight="1"
+                              android:paddingTop="4dp"
+                              android:paddingBottom="4dp"
+                              android:paddingRight="10dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:text="Unit :"
+                              android:textAlignment="textEnd"
+                              android:textStyle="bold"
+                              android:layout_width="80dp"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/tv_unit"
+                            android:text="2,779,090.13"
+                              android:textAlignment="textEnd"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout android:layout_weight="1"
+                              android:paddingTop="4dp"
+                              android:paddingBottom="4dp"
+                              android:paddingRight="10dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:text="NAV/Unit :"
+                              android:textAlignment="textEnd"
+                              android:textStyle="bold"
+                              android:layout_width="80dp"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/tv_navperunit"
+                            android:text="1,079.00"
+                              android:textAlignment="textEnd"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout android:layout_weight="1"
+                              android:paddingTop="4dp"
+                              android:paddingBottom="4dp"
+                              android:paddingRight="10dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:text="Nilai :"
+                              android:textAlignment="textEnd"
+                              android:textStyle="bold"
+                              android:layout_width="80dp"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/tv_value_amount"
+                            android:text="3,000,861,517.94"
+                              android:textAlignment="textEnd"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout android:layout_weight="1"
+                              android:paddingTop="4dp"
+                              android:paddingBottom="4dp"
+                              android:paddingRight="10dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:text="Biaya :"
+                              android:textAlignment="textEnd"
+                              android:textStyle="bold"
+                              android:layout_width="80dp"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/tv_cost"
+                            android:text="3,000,000,000.00"
+                              android:textAlignment="textEnd"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout android:layout_weight="1"
+                              android:paddingTop="4dp"
+                              android:paddingBottom="4dp"
+                              android:paddingRight="10dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:text="L/R :"
+                              android:textAlignment="textEnd"
+                              android:textStyle="bold"
+                              android:layout_width="80dp"
+                              android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/tv_profitloss"
+                            android:text="861,517.94"
+                              android:textAlignment="textEnd"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout android:padding="4dp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+            <TextView android:id="@+id/tv_date"
+                    android:text="25-Jul-2018"
+                      android:textAlignment="center"
+                      android:layout_width="150dp"
+                      android:layout_height="wrap_content"/>
+
+            <TextView android:id="@+id/tv_profitloss_percent"
+                    android:text="0.03 %"
+                      android:textAlignment="textEnd"
+                      android:paddingRight="6dp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

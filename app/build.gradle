@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.DalwaApp"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    // Anko
+    implementation "org.jetbrains.anko:anko:$anko_version"
+    implementation "org.jetbrains.anko:anko-design:$anko_version" // For SnackBars
+    // Fuel
+    implementation 'com.github.kittinunf.fuel:fuel:1.13.0'
+    implementation 'com.github.kittinunf.fuel:fuel-android:1.13.0'
+    implementation 'com.github.kittinunf.fuel:fuel-gson:1.13.0'
+    implementation 'com.github.kittinunf.fuel:fuel-coroutines:1.13.0'
+    // Additional Plugins/Components
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.ss.bannerslider:bannerslider:2.0.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
+    implementation 'com.r0adkll:slidableactivity:2.0.6'
+    implementation 'com.alespero:expandable-cardview:0.8'
+    implementation 'me.relex:circleindicator:2.1.0'
+    implementation 'com.github.gcacace:signature-pad:1.2.1'
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'          // circle image view
+//    implementation 'com.afollestad.material-dialogs:core:0.9.4.5'
+    implementation 'com.karumi:dexter:5.0.0'
+}
