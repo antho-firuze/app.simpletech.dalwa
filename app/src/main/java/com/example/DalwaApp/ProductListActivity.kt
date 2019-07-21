@@ -120,9 +120,15 @@ class ProductListActivity : AppCompatActivity() {
 
         rows = query?.findAll()!!
 
-        products = ArrayList()
-        products.addAll(Realm.getDefaultInstance().copyFromRealm(rows))
-        recycleView.adapter = ListAdapterProduct(products)
+        if (rows.isEmpty()) {
+            recycleView.visibility = View.GONE
+        } else {
+            recycleView.visibility = View.VISIBLE
+            products = ArrayList()
+            products.addAll(Realm.getDefaultInstance().copyFromRealm(rows))
+            recycleView.adapter = ListAdapterProduct(products)
+        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

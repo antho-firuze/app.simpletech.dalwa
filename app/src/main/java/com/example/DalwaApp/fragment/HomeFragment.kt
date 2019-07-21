@@ -182,7 +182,7 @@ class HomeFragment : Fragment() {
 
         recycleView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         var rows = realm?.where<tPorfolioDashboard>()?.findAll()
-        products.addAll(Realm.getDefaultInstance().copyFromRealm(rows))
+//        products.addAll(Realm.getDefaultInstance().copyFromRealm(rows))
         recycleView.adapter = ListAdapterProduct(products)
 
 //        recycleView_MU.layoutManager = LinearLayoutManager(context)

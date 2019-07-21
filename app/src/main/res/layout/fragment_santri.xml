@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+              android:orientation="vertical"
              tools:context=".fragment.SantriFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:elevation="4dp"
+            android:theme="@style/ToolbarTheme"
+            app:popupTheme="@style/Base.Widget.AppCompat.PopupMenu"
+            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Santri"/>
+            android:layout_height="?attr/actionBarSize"
+            android:minHeight="?android:attr/actionBarSize">
 
-</FrameLayout>
+        <TextView
+                android:id="@+id/tv_content"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:text="Daftar Santri"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/avenirnextltpromedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="12dp"
+            android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <TextView
+                android:text="Tidak Ada Data !"
+                android:textAlignment="center"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <TextView
+                android:text="Silahkan tambah data santri yang akan di monitor. Tekan tombol (+) di sebelah kanan atas"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>

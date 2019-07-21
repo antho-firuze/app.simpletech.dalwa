@@ -15,7 +15,7 @@
 
         <ImageView
                 android:id="@+id/img_logo_login"
-                android:src="@drawable/logo"
+                android:src="@drawable/logo_dalwa"
                 android:layout_width="match_parent"
                 android:layout_height="185dp"
                 android:layout_marginBottom="10dp"

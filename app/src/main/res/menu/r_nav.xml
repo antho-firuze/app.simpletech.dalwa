@@ -9,7 +9,7 @@
             app:showAsAction="ifRoom"/>
     <item
             android:id="@+id/opt_signup"
-            android:icon="@drawable/ic_dashboard_black_24dp"
+            android:icon="@drawable/ic_dashboard"
             android:title="Daftar"
             app:showAsAction="never"/>
     <item

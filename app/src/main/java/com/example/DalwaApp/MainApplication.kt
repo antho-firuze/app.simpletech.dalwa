@@ -55,9 +55,13 @@ val jRequest = JSONObject()
 val sRandom = Random()
 var aMain = Activity()
 
-val URL_API = "https://api.simpipro.com"
+//val URL_API = "https://api.simpipro.com"
+//val AGENT = "android"
+//val APPCODE = "ayoavram.webapp"
+
+val URL_API = "http://localhost:5050"
 val AGENT = "android"
-val APPCODE = "ayoavram.webapp"
+val APPCODE = "dalwa.app"
 
 var realm: Realm? = null
 var req: String = ""

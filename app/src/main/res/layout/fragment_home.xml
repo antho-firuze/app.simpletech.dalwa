@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".fragment.HomeFragment">
+
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:elevation="4dp"
+            android:theme="@style/ToolbarTheme"
+            app:popupTheme="@style/Base.Widget.AppCompat.PopupMenu"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:minHeight="?android:attr/actionBarSize">
+
+        <TextView
+                android:id="@+id/tv_content"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:text="Dashboard"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/avenirnextltpromedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </android.support.v7.widget.Toolbar>
 
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:elevation="4dp"
-                android:theme="@style/ToolbarTheme"
-                app:popupTheme="@style/Base.Widget.AppCompat.PopupMenu"
-                android:background="@color/colorPrimary"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:minHeight="?android:attr/actionBarSize">
-
-            <TextView
-                    android:id="@+id/tv_content"
-                    android:gravity="center"
-                    android:textSize="22sp"
-                    android:text="Dashboard"
-                    android:textColor="@android:color/white"
-                    android:fontFamily="@font/avenirnextltpromedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-        </android.support.v7.widget.Toolbar>
-
-        <ScrollView
+        <android.support.v4.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -80,11 +81,11 @@
                 <android.support.v7.widget.RecyclerView
                         android:id="@+id/recycleView_MU"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="wrap_content"/>
 
             </LinearLayout>
-        </ScrollView>
+        </android.support.v4.widget.NestedScrollView>
 
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>
