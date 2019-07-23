@@ -16,7 +16,7 @@
 
         <ImageView
                 android:id="@+id/img_market"
-                android:src="@drawable/news_1"
+                android:src="@drawable/mu_1_200"
                 android:layout_width="120dp"
                 android:layout_height="100dp"/>
 

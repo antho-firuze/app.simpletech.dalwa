@@ -1,35 +1,31 @@
 package com.example.DalwaApp
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.RadioButton
 import android.widget.Toast
-import com.example.DalwaApp.R
 import com.example.DalwaApp.helper.F
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpPost
 import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.design.snackbar
-import org.json.JSONObject
 
 /**
  * Created by antho.firuze@gmail.com on 14/05/2019.
  */
 
-class RegisterActivity : AppCompatActivity() {
+class ForgotPwdActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.activity_forgot_pwd)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = ""
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -53,23 +49,14 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun actionDone() {
-        if (! F().isValidName(txt_name.text.toString())) {
-            Toast.makeText(applicationContext, "Nama Lengkap tidak valid", Toast.LENGTH_LONG).show()
-            return
-        }
         if (! F().isValidEmail(txt_email.text.toString())) {
             Toast.makeText(applicationContext, "Alamat Email tidak valid", Toast.LENGTH_LONG).show()
             return
         }
-        if (txt_phone.text.toString().equals("")) {
-            Toast.makeText(applicationContext, "No Handphone tidak valid", Toast.LENGTH_LONG).show()
-            return
-        }
-        val rb_selected: RadioButton = findViewById(rg_gender.checkedRadioButtonId)
-//        Toast.makeText(applicationContext, rb_selected.tag.toString(), Toast.LENGTH_LONG).show()
-        req = setRequest("auth.register", mapOf("full_name" to txt_name.text.toString(), "email" to txt_email.text.toString(), "phone" to txt_phone.text.toString(), "gender" to rb_selected.tag.toString()))
+
+        req = setRequest("auth.password_forgot", mapOf("email" to txt_email.text.toString()))
         URL_API.httpPost().body(req).responseJson { _, resp, res ->
-            if (resp.data.size > 0) {
+            if (resp.data.isNotEmpty()) {
                 val (dataRes, _) = res
                 if (dataRes!!.obj().getBoolean("status")) {
                     val builder =  AlertDialog.Builder(this)

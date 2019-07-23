@@ -26,6 +26,6 @@
             android:layout_marginStart="0dp"
             android:background="?android:attr/windowBackground"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/b_nav"/>
+            app:menu="@menu/menu_bottom"/>
 
 </LinearLayout>

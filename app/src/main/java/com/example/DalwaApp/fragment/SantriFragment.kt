@@ -3,62 +3,138 @@ package com.example.DalwaApp.fragment
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import com.example.DalwaApp.*
 
 import com.example.DalwaApp.model.tListSantri
-import com.example.DalwaApp.model.tSantri
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpPost
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_santri.*
 import kotlinx.android.synthetic.main.list_santri.view.*
+import org.jetbrains.anko.design.snackbar
 import org.json.JSONObject
 
 class SantriFragment : Fragment() {
 
-    var santri: MutableList<tListSantri> = mutableListOf()
-    var santri2: ArrayList<tListSantri> = arrayListOf()
+    var santri: ArrayList<tListSantri> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        recycleView.layoutManager = LinearLayoutManager(context)
-//        var rows = Realm.getDefaultInstance().where<tSantri>().findAll()
-//        if (! rows.isEmpty()) {
-//            santri.addAll(Realm.getDefaultInstance().copyFromRealm(rows))
-//            recycleView.adapter = ListAdapter(santri)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_santri, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+//    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+//        return when (item!!.itemId) {
+//            R.id.opt_add -> {
+//                Toast.makeText(context, "click on add", Toast.LENGTH_LONG).show()
+//                val intent = Intent(context, ProfileEditActivity::class.java)
+//                startActivity(intent)
+//                true
+//            }
+//            else -> super.onOptionsItemSelected(item)
 //        }
+//    }
 
-        req = setRequest("wali.list")
-        URL_API.httpPost().body(req).responseJson { _, resp, res ->
-            if (resp.data.size > 0) {
-                val (dataRes, _) = res
-                if (dataRes!!.obj().getBoolean("status")) {
-                    var rows = (dataRes.obj()["result"] as JSONObject).getJSONArray("rows")
-                    var l = rows.length()
-//                    santri2 = ArrayList(rows.length()) { rows.get(it) }
-//                    santri.addAll((dataRes.obj()["result"] as JSONObject).getJSONObject("rows"))
-//                    santri2.addAll((dataRes.obj()["result"] as JSONObject).getJSONArray("rows"))
-                    recycleView.layoutManager = LinearLayoutManager(context)
-//                    recycleView.adapter = ListAdapter(santri)
+    private fun loadData() {
+        if (! session!!.isLogin)
+            return
 
-//                    snackbar(main_layout, "Loading data berhasil (master)")
-                } else {
-//                    snackbar(main_layout, "Error Load Data: "+dataRes.obj().getString("message"))
-                }
-            } else {
-//                snackbar(main_layout,"Error (Balance): Ajax request failed")
-            }
-        }
+//        req = setRequest("wali.list_santri", mapOf("partner_id" to partner_id))
+//        URL_API.httpPost().body(req).responseJson { _, resp, res ->
+//            if (resp.data.size > 0) {
+//                val (dataRes, _) = res
+//                if (dataRes!!.obj().getBoolean("status")) {
+//                    var rows = (dataRes.obj()["result"] as JSONObject).getString("rows")
+//                    val gson = GsonBuilder().setPrettyPrinting().create()
+//                    santri = gson.fromJson(rows, object : TypeToken<List<tListSantri>>() {}.type)
+//
+//                    if (santri.isEmpty()) {
+//                        recycleView.visibility = View.GONE
+//                    } else {
+//                        recycleView.visibility = View.VISIBLE
+//                        recycleView.layoutManager = LinearLayoutManager(context)
+//                        recycleView.adapter = ListAdapter(santri)
+//                    }
+//
+//                } else {
+//                    snackbar(santri_layout, "Error Load Data: "+dataRes.obj().getString("message"))
+//                }
+//            } else {
+//                snackbar(santri_layout,"Error: Ajax request failed")
+//            }
+//        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_santri, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        (activity as AppCompatActivity).supportActionBar?.title = ""
+
+        setHasOptionsMenu(true)
+
+        loadData()
+//        toolbar.setOnMenuItemClickListener {
+//            Toast.makeText(context, it.title, Toast.LENGTH_LONG).show()
+//
+//            when (it.itemId) {
+//                R.id.opt_add -> {
+//                    val intent = Intent(context, LoginActivity::class.java)
+//                    context?.startActivity(intent)
+//                }
+//                R.id.opt_logout -> {
+//                    val builder =  AlertDialog.Builder((activity as AppCompatActivity))
+//                    builder.setTitle("Info")
+//                    builder.setMessage("Anda ingin keluar ?")
+//                    builder.setPositiveButton("YES"){ dialog, which ->
+//                        // Do something when user press the positive button
+//                        Toast.makeText(context,"Ok, we logout.", Toast.LENGTH_SHORT).show()
+//
+////                        isLogin = false
+//                        session!!.isLogin = false
+//                        (activity as AppCompatActivity).invalidateOptionsMenu()
+//
+//                        (activity as AppCompatActivity).navigation.menu.findItem(R.id.nav_profile_wali).isVisible = false
+//                        (activity as AppCompatActivity).navigation.menu.findItem(R.id.nav_profile_santri).isVisible = false
+//                    }
+//                    builder.setNeutralButton("Cancel"){ dialog, which -> }
+//                    val dialog: AlertDialog = builder.create()
+//                    dialog.show()
+//                }
+//                R.id.opt_signup -> {
+//                    val intent = Intent(context, RegisterActivity::class.java)
+//                    context?.startActivity(intent)
+//                }
+//                R.id.opt_chgpwd -> {
+//                    val intent = Intent(context, ChangePwdActivity::class.java)
+//                    context?.startActivity(intent)
+//                }
+//                R.id.opt_profile -> {
+//                    val intent = Intent(context, ProfileActivity::class.java)
+//                    context?.startActivity(intent)
+//                }
+//            }
+//
+//            return@setOnMenuItemClickListener true
+//        }
     }
 
     class ListAdapter(val rows: ArrayList<tListSantri>) : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {

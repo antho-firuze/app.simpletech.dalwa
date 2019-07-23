@@ -23,4 +23,12 @@ class Session(ctx: Context) {
     var isLogin: Boolean
         get() = pref.getBoolean("isLogin", false)
         set(value) = pref.edit().putBoolean("isLogin", value).apply()
+
+    var token: String
+        get() = pref.getString("token", "")
+        set(value) = pref.edit().putString("token", value).apply()
+
+    var login_id: Int
+        get() = pref.getInt("login_id", 0)
+        set(value) = pref.edit().putInt("login_id", value).apply()
 }

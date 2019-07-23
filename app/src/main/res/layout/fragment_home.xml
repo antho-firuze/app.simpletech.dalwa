@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".fragment.HomeFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:id="@+id/home_layout"
+              tools:context=".fragment.HomeFragment">
 
     <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -45,11 +45,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                <ss.com.bannerslider.Slider android:id="@+id/banner_slider1"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="250dp"></ss.com.bannerslider.Slider>
+                <android.support.v7.widget.CardView
+                        android:layout_marginBottom="@dimen/spacing_middle"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginRight="@dimen/spacing_large"
+                        android:layout_marginTop="@dimen/spacing_middle"
+                        android:visibility="visible"
+                        app:cardCornerRadius="3dp"
+                        app:cardElevation="4dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <ss.com.bannerslider.Slider android:id="@+id/banner_slider1"
+                                                app:slider_interval="5000"
+                                                app:slider_loopSlides="true"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="250dp"/>
+
+                </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.RecyclerView
+                        android:visibility="gone"
                         android:id="@+id/recycleView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
@@ -60,7 +76,7 @@
                         android:layout_height="wrap_content">
 
                     <TextView
-                            android:text="Market Update"
+                            android:text="Dalwa Update"
                             android:textSize="18dp"
                             android:padding="4dp"
                             android:textFontWeight="2"
@@ -79,7 +95,7 @@
                 </LinearLayout>
 
                 <android.support.v7.widget.RecyclerView
-                        android:id="@+id/recycleView_MU"
+                        android:id="@+id/recycleView_News"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 

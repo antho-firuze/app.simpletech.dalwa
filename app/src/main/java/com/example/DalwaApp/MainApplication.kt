@@ -59,7 +59,7 @@ var aMain = Activity()
 //val AGENT = "android"
 //val APPCODE = "ayoavram.webapp"
 
-val URL_API = "http://localhost:5050"
+val URL_API = "http://192.168.1.33:5050"
 val AGENT = "android"
 val APPCODE = "dalwa.app"
 
@@ -76,6 +76,9 @@ fun setRequest(method: String, params: Map<Any, Any> = emptyMap()): String {
     if (params.isNotEmpty())
         jRequest.put("params", JSONObject(params))
 
+    if (session!!.token.isNotEmpty())
+        jRequest.put("token", session!!.token)
+
     return jRequest.toString()
 }
 
@@ -84,13 +87,13 @@ fun stringToDateTime(dt: String, fmt: String = ANSI_DATETIME_FORMAT): Date {
     return DateTimeFmt.parse(dt)
 }
 
-private fun diffOfDaysByDateAndTime( a: Calendar, b: Calendar ): Int {
+private fun diffOfDaysByDateAndTime(a: Calendar, b: Calendar): Int {
 
     val duration = a.timeInMillis - b.timeInMillis
     return TimeUnit.MILLISECONDS.toDays(duration).toInt()
 }
 
-private fun diffOfDaysByDate( a: Calendar, b: Calendar ): Int {
+private fun diffOfDaysByDate(a: Calendar, b: Calendar): Int {
 
     clearTimeComponent(a)
     clearTimeComponent(b)
@@ -98,7 +101,7 @@ private fun diffOfDaysByDate( a: Calendar, b: Calendar ): Int {
     return diffOfDaysByDateAndTime(a, b)
 }
 
-private fun clearTimeComponent( date: Calendar ) {
+private fun clearTimeComponent(date: Calendar) {
 
     date.set(Calendar.HOUR_OF_DAY, 0)
     date.set(Calendar.MINUTE, 0)
@@ -135,7 +138,10 @@ class MainApplication : Application() {
 
         session = Session(applicationContext)
 
-        jRequest.put("id", sRandom.nextInt()).put("appcode", APPCODE).put("agent", AGENT)
+        jRequest
+            .put("id", sRandom.nextInt())
+            .put("appcode", APPCODE)
+            .put("agent", AGENT)
 
         // ... Initialization Realm Database
         Realm.init(this)
@@ -145,10 +151,10 @@ class MainApplication : Application() {
         Realm.setDefaultConfiguration(config)
         realm = Realm.getDefaultInstance()
 
-        if (isDownloadPortfolioDashboard())
-            getPortfolioDashboard()
-        getPortfolioMaster()
-        getMarketUpdate()
+//        if (isDownloadPortfolioDashboard())
+//            getPortfolioDashboard()
+//        getPortfolioMaster()
+//        getMarketUpdate()
     }
 
     @SuppressLint("NewApi")
@@ -180,7 +186,6 @@ class MainApplication : Application() {
     fun getPortfolioDashboard() {
 //        var row = realm?.where<tTimestamp>()?.equalTo("field", "PortfolioDashboard")?.findFirst()
 //        if (row.timestamp
-
 
 
 //        req = setRequest("simple_fund.reksadana_beranda", mapOf("limit" to 2))

@@ -19,6 +19,6 @@
     <item
             android:id="@+id/nav_faq"
             android:icon="@drawable/ic_help_black_24dp"
-            android:title="FAQ"/>
+            android:title="BANTUAN"/>
 
 </menu>

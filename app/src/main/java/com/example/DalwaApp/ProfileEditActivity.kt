@@ -11,6 +11,10 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_profile_old.*
 import java.util.*
 
+/**
+ * Created by antho.firuze@gmail.com on 14/05/2019.
+ */
+
 class ProfileEditActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
