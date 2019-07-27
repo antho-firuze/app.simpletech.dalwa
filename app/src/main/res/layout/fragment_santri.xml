@@ -6,28 +6,37 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:id="@+id/santri_layout"
+        android:id="@+id/main_layout"
         tools:context=".fragment.SantriFragment">
 
     <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            android:elevation="4dp"
-            android:theme="@style/ToolbarTheme"
-            app:popupTheme="@style/Base.Widget.AppCompat.PopupMenu"
             android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:minHeight="?android:attr/actionBarSize">
 
-        <TextView
-                android:id="@+id/tv_content"
-                android:gravity="center"
-                android:textSize="22sp"
-                android:text="Daftar Santri"
-                android:textColor="@android:color/white"
-                android:fontFamily="@font/avenirnextltpromedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+        <LinearLayout android:orientation="horizontal"
+                      android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <TextView android:id="@+id/tv_content"
+                      android:gravity="center"
+                      android:textAlignment="viewStart"
+                      android:layout_weight="1"
+                      android:textSize="22sp"
+                      android:text="Santri"
+                      android:textColor="@android:color/white"
+                      android:fontFamily="@font/avenirnextltpromedium"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent" tools:ignore="RtlCompat"/>
+
+            <ImageView android:id="@+id/btn_add"
+                       android:src="@drawable/ic_add"
+                       android:padding="6dp"
+                       android:layout_width="?attr/actionBarSize"
+                       android:layout_height="?attr/actionBarSize"/>
+
+        </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
 
@@ -56,14 +65,5 @@
                 android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
     </LinearLayout>
-
-    <android.support.design.widget.FloatingActionButton
-            android:src="@drawable/ic_mode_edit"
-            android:tint="@color/white"
-            app:layout_anchor="@id/appBarLayout"
-            app:layout_anchorGravity="bottom|right|end"
-            android:layout_marginEnd="32dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
 </LinearLayout>

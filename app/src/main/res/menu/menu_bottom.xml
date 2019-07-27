@@ -3,13 +3,8 @@
 
     <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_home_black_24dp"
+            android:icon="@drawable/ic_home"
             android:title="BERANDA"/>
-
-    <item
-            android:id="@+id/nav_profile_wali"
-            android:icon="@drawable/ic_person_grey_24dp"
-            android:title="PROFILE WALI"/>
 
     <item
             android:id="@+id/nav_profile_santri"
@@ -18,7 +13,7 @@
 
     <item
             android:id="@+id/nav_faq"
-            android:icon="@drawable/ic_help_black_24dp"
+            android:icon="@drawable/ic_help"
             android:title="BANTUAN"/>
 
 </menu>

@@ -9,9 +9,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_middle"
-            android:layout_marginLeft="@dimen/spacing_large"
-            android:layout_marginRight="@dimen/spacing_large"
-            android:layout_marginTop="@dimen/spacing_middle"
+            android:layout_marginLeft="@dimen/spacing_middle"
+            android:layout_marginRight="@dimen/spacing_middle"
+            android:layout_marginTop="@dimen/spacing_medium"
             android:visibility="visible"
             app:cardCornerRadius="3dp"
             app:cardElevation="4dp">
@@ -51,25 +51,26 @@
                     android:orientation="horizontal">
 
                 <LinearLayout
+                        android:id="@+id/btn_bill"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="?attr/selectableItemBackground"
                         android:clickable="true"
                         android:gravity="center"
-                        android:orientation="horizontal"
-                        android:padding="@dimen/spacing_medium">
+                        android:orientation="horizontal">
 
                     <ImageButton
-                            android:id="@+id/img_invoice"
+                            android:layout_marginLeft="-20dp"
                             android:layout_width="?attr/actionBarSize"
                             android:layout_height="?attr/actionBarSize"
                             android:background="@android:color/transparent"
                             android:tint="@color/grey_20"
+                            android:focusable="false"
+                            android:clickable="false"
                             app:srcCompat="@drawable/ic_payment" />
 
                     <TextView
-                            android:id="@+id/lbl_invoice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="TAGIHAN"
@@ -84,21 +85,24 @@
                         android:background="@color/grey_5" />
 
                 <LinearLayout
+                        android:id="@+id/btn_transaction"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="?attr/selectableItemBackground"
                         android:clickable="true"
-                        android:orientation="horizontal"
                         android:gravity="center"
-                        android:padding="@dimen/spacing_medium">
+                        android:orientation="horizontal">
 
                     <ImageButton
                             android:id="@+id/img_transaction"
+                            android:layout_marginLeft="-20dp"
                             android:layout_width="?attr/actionBarSize"
                             android:layout_height="?attr/actionBarSize"
                             android:background="@android:color/transparent"
                             android:tint="@color/grey_20"
+                            android:focusable="false"
+                            android:clickable="false"
                             app:srcCompat="@drawable/ic_history" />
 
                     <TextView

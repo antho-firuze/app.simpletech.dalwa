@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.DalwaApp">
+          package="com.example.dalwaapp">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -12,45 +12,35 @@
             android:required="true"/>
 
     <application
-            android:name=".MainApplication"
+            android:name="com.example.dalwaapp.MainApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
+            android:usesCleartextTraffic="true"
             android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".BillingActivity">
-        </activity>
-        <activity android:name=".TransactionProfileActivity">
-        </activity>
-        <activity android:name=".RedeemActivity">
-        </activity>
-        <activity android:name=".SubscriptionActivity">
-        </activity>
-        <activity android:name=".ChangePwdActivity">
-        </activity>
-        <activity android:name=".ProfileActivity"
+        <activity android:name="com.example.dalwaapp.BillingActivity"/>
+        <activity android:name=".TransactionProfileActivity"/>
+        <activity android:name=".RedeemActivity"/>
+        <activity android:name=".SubscriptionActivity"/>
+        <activity android:name="com.example.dalwaapp.ChangePwdActivity"/>
+        <activity android:name="com.example.dalwaapp.ProfileActivity"
                   android:exported="true">
         </activity>
         <activity android:name=".ProfileActivity2"
                   android:exported="true">
         </activity>
-        <activity android:name=".ProfileActivity_old">
-        </activity>
-        <activity android:name=".RegisterActivity">
-        </activity>
-        <activity android:name=".LoginActivity">
-        </activity>
-        <activity android:name=".MarketUpdateActivity">
-        </activity>
-        <activity android:name=".ProductListActivity">
-        </activity>
-        <activity android:name=".ProductProfileActivity">
-        </activity>
-        <activity android:name=".MarketUpdateListActivity">
-        </activity>
+        <activity android:name=".ProfileActivity_old"/>
+        <activity android:name="com.example.dalwaapp.RegisterActivity"/>
+        <activity android:name="com.example.dalwaapp.MainActivity"
+                  android:exported="true"/>
+        <activity android:name=".MarketUpdateActivity"/>
+        <activity android:name=".ProductListActivity"/>
+        <activity android:name=".ProductProfileActivity"/>
+        <activity android:name=".MarketUpdateListActivity"/>
         <activity
-                android:name=".MainActivity"
+                android:name="com.example.dalwaapp.LoginActivity"
                 android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -58,8 +48,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileEditActivity"/>
-        <activity android:name=".ForgotPwdActivity"/>
+        <activity android:name="com.example.dalwaapp.ProfileEditActivity"/>
+        <activity android:name="com.example.dalwaapp.ForgotPwdActivity"/>
+        <activity android:name="com.example.dalwaapp.AddSantriActivity"/>
     </application>
 
 </manifest>
