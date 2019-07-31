@@ -8,6 +8,6 @@ data class tBill(
     val bill_status: String,
     val bill_status_id: Int,
     val desc: String,
-    val due_date: Date,
+    val due_date: Date?,
     val partner_id: Int
 )

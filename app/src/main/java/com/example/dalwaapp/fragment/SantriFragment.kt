@@ -60,7 +60,7 @@ class SantriFragment : Fragment() {
 
         req = setRequest("wali.list_santri")
         URL_API.httpPost().body(req).responseJson { _, resp, res ->
-            if (resp.data.size > 0) {
+            if (resp.data.isNotEmpty()) {
                 val (dataRes, _) = res
                 if (dataRes!!.obj().getBoolean("status")) {
                     var rows = (dataRes.obj()["result"] as JSONObject).getString("rows")
@@ -102,28 +102,23 @@ class SantriFragment : Fragment() {
 
                 txt_name.text = r.full_name
                 txt_nis.text = r.reg_no
+                txt_nis.tag = r.partner_id
 
                 btn_bill.setOnClickListener {
+                    pubVar.put("partner_id", r.partner_id)
                     pubVar.put("nis", r.reg_no)
                     pubVar.put("name", r.full_name)
 
                     context?.startActivity(Intent(context, BillingActivity::class.java))
                 }
                 btn_transaction.setOnClickListener {
+                    pubVar.put("partner_id", r.partner_id)
                     pubVar.put("nis", r.reg_no)
                     pubVar.put("name", r.full_name)
 
                     context?.startActivity(Intent(context, ProfileActivity::class.java))
                 }
             }
-        }
-
-        private fun openBill(view: View?, nis: String) {
-            view?.context?.startActivity(Intent(view.context, BillingActivity::class.java))
-        }
-
-        private fun openTransaction(view: View?, partnerId: Int) {
-            view?.context?.startActivity(Intent(view.context, ProfileActivity::class.java))
         }
 
         class ListViewHolder(v: View) : RecyclerView.ViewHolder(v)

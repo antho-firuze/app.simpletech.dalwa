@@ -51,6 +51,7 @@
         <activity android:name="com.example.dalwaapp.ProfileEditActivity"/>
         <activity android:name="com.example.dalwaapp.ForgotPwdActivity"/>
         <activity android:name="com.example.dalwaapp.AddSantriActivity"/>
+        <activity android:name=".PaymentActivity"/>
     </application>
 
 </manifest>

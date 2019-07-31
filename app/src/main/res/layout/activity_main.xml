@@ -19,6 +19,7 @@
 
     <android.support.design.widget.BottomNavigationView
             android:id="@+id/navigation"
+            android:layout_alignBottom="@+id/fragment_container"
             app:menu="@menu/menu_bottom"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"

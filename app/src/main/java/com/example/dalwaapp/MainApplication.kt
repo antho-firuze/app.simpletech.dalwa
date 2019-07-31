@@ -44,6 +44,7 @@ const val JAVA_DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 //var AnsiDateTimeFmt = SimpleDateFormat(ANSI_DATETIME_FORMAT)
 
 val URL_API = "http://192.168.1.33:5050"
+//val URL_API = "http://192.168.43.72:5050"
 val AGENT = "android"
 val APPCODE = "dalwa.app"
 val LANG = "id"
@@ -60,7 +61,7 @@ var req: String = ""
 var pubVar: MutableMap<Any, Any> = mutableMapOf()
 
 //val NAVTimeStamp = SimpleDateFormat("yyyy-MM-dd 11:00:00").format(Date())
-val NAVTimeStamp = SimpleDateFormat("yyyy-MM-dd 11:00:00").format(Date())
+val DateTimeStamp = SimpleDateFormat("yyyy-MM-dd 11:00:00").format(Date())
 
 fun setRequest(method: String, params: Map<Any, Any> = emptyMap()): String {
     jRequest.put("method", method)

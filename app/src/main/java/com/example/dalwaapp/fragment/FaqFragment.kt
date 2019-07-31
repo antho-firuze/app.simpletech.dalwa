@@ -61,17 +61,11 @@ class FaqFragment : Fragment() {
         var context: Context?, var header: MutableList<String>, var body: MutableList<MutableList<String>>
     ) : BaseExpandableListAdapter() {
 
-        override fun getGroup(groupPosition: Int): Any {
-            return header[groupPosition]
-        }
+        override fun getGroup(groupPosition: Int): Any =  header[groupPosition]
 
-        override fun isChildSelectable(groupPosition: Int, childPosition: Int): Boolean {
-            return true
-        }
+        override fun isChildSelectable(groupPosition: Int, childPosition: Int): Boolean = true
 
-        override fun hasStableIds(): Boolean {
-            return false
-        }
+        override fun hasStableIds(): Boolean = false
 
         override fun getGroupView(
             groupPosition: Int, isExpanded: Boolean, convertView: View?, parent: ViewGroup?
@@ -87,17 +81,11 @@ class FaqFragment : Fragment() {
             return convertView
         }
 
-        override fun getChildrenCount(groupPosition: Int): Int {
-            return body[groupPosition].count()
-        }
+        override fun getChildrenCount(groupPosition: Int): Int = body[groupPosition].count()
 
-        override fun getChild(groupPosition: Int, childPosition: Int): Any {
-            return body[groupPosition][childPosition]
-        }
+        override fun getChild(groupPosition: Int, childPosition: Int): Any = body[groupPosition][childPosition]
 
-        override fun getGroupId(groupPosition: Int): Long {
-            return groupPosition.toLong()
-        }
+        override fun getGroupId(groupPosition: Int): Long = groupPosition.toLong()
 
         override fun getChildView(
             groupPosition: Int, childPosition: Int, isLastChild: Boolean, convertView: View?, parent: ViewGroup?
@@ -112,13 +100,9 @@ class FaqFragment : Fragment() {
             return convertView
         }
 
-        override fun getChildId(groupPosition: Int, childPosition: Int): Long {
-            return childPosition.toLong()
-        }
+        override fun getChildId(groupPosition: Int, childPosition: Int): Long = childPosition.toLong()
 
-        override fun getGroupCount(): Int {
-            return header.size
-        }
+        override fun getGroupCount(): Int = header.size
 
     }
 

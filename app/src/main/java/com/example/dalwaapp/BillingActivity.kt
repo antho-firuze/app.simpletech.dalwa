@@ -1,6 +1,7 @@
 package com.example.dalwaapp
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -11,6 +12,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.dalwaapp.model.tBill
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpPost
@@ -23,6 +25,7 @@ import org.json.JSONObject
 import java.text.SimpleDateFormat
 
 var isSelectAll = true
+var selectedItems: ArrayList<tBill> = arrayListOf()
 
 class BillingActivity : AppCompatActivity() {
 
@@ -50,6 +53,16 @@ class BillingActivity : AppCompatActivity() {
             recycleView.adapter = ListAdapter(this, bill)
         }
 
+        selectedItems.clear()
+        btn_payment.setOnClickListener {
+            if (selectedItems.isEmpty()) {
+                Toast.makeText(this, "Silahkan pilih tagihan yang akan dibayar", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+            pubVar.put("rows", selectedItems)
+            startActivity(Intent(this, PaymentActivity::class.java))
+        }
+
         loadData()
     }
 
@@ -64,10 +77,10 @@ class BillingActivity : AppCompatActivity() {
 
         req = setRequest("santri.bill", mapOf("nis" to pubVar["nis"].toString()))
         URL_API.httpPost().body(req).responseJson { _, resp, res ->
-            if (resp.data.size > 0) {
+            if (resp.data.isNotEmpty()) {
                 val (dataRes, _) = res
                 if (dataRes!!.obj().getBoolean("status")) {
-                    var rows = (dataRes.obj()["result"] as JSONObject).getString("rows")
+                    val rows = (dataRes.obj()["result"] as JSONObject).getString("rows")
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     bill = gson.fromJson(rows, object : TypeToken<List<tBill>>() {}.type)
 
@@ -78,7 +91,8 @@ class BillingActivity : AppCompatActivity() {
                         lbl_bill_empty.visibility = View.GONE
                         recycleView.visibility = View.VISIBLE
                         recycleView.layoutManager = LinearLayoutManager(this)
-                        recycleView.adapter = ListAdapter(this, bill)
+                        adapter = ListAdapter(this, bill)
+                        recycleView.adapter = adapter
                     }
 
                 } else {
@@ -98,12 +112,9 @@ class BillingActivity : AppCompatActivity() {
 
         private val act: BillingActivity = context as BillingActivity
         private var selectedRows: ArrayList<tBill> = arrayListOf()
-        var listViewHolder: ListViewHolder? = null
-        var view: View? = null
 
         override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ListViewHolder {
-            listViewHolder = ListViewHolder(LayoutInflater.from(p0.context).inflate(R.layout.list_bill, p0, false))
-            return listViewHolder as ListViewHolder
+            return ListViewHolder(LayoutInflater.from(p0.context).inflate(R.layout.list_bill, p0, false))
         }
 
         override fun getItemCount(): Int = rows.size
@@ -137,6 +148,8 @@ class BillingActivity : AppCompatActivity() {
             val ttlAmount = selectedRows.map { it.amount }.sum()
             act.lbl_total.text = currFmtID.format(ttlAmount)
             act.cb_all.isChecked = rows.size == selectedRows.size
+
+            selectedItems = selectedRows
         }
 
         fun selectAll() {
@@ -144,6 +157,8 @@ class BillingActivity : AppCompatActivity() {
             selectedRows.addAll(rows)
             val ttlAmount = selectedRows.map { it.amount }.sum()
             act.lbl_total.text = currFmtID.format(ttlAmount)
+
+            selectedItems = selectedRows
         }
 
         fun unselectAll() {
@@ -151,6 +166,8 @@ class BillingActivity : AppCompatActivity() {
             selectedRows.removeAll(rows)
             val ttlAmount = selectedRows.map { it.amount }.sum()
             act.lbl_total.text = currFmtID.format(ttlAmount)
+
+            selectedItems = selectedRows
         }
 
         class ListViewHolder(v: View) : RecyclerView.ViewHolder(v)

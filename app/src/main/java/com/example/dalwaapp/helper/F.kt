@@ -107,3 +107,5 @@ class F {
 //selectedRows2.put(k, value)
 //selectedRows2.remove(k)
 //val ttlAmount2 = selectedRows2.map { it.value.toDouble() }.sum()
+
+//val DateTimeStamp = SimpleDateFormat("yyyy-MM-dd 11:00:00").format(Date())
