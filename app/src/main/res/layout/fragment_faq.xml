@@ -31,10 +31,11 @@
 
         <ExpandableListView android:id="@+id/elv"
                             android:layoutDirection="rtl"
+                            android:scrollbars="none"
+                            android:fitsSystemWindows="true"
+                            android:dividerHeight="@dimen/spacing_medium"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-        </ExpandableListView>
+                            android:layout_height="match_parent"/>
 
     </LinearLayout>
 

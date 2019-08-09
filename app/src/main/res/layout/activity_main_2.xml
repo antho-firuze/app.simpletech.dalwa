@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/main_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ImageView
+            android:src="@drawable/background"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent" android:layout_height="match_parent"/>
+
+    <ImageView
+            android:src="@drawable/footer"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
+            android:scaleType="fitXY"
+            android:gravity="bottom|center_horizontal"
+            android:layout_width="match_parent" android:layout_height="80dp"/>
+
+    <LinearLayout android:orientation="vertical"
+                  android:gravity="center_horizontal"
+                  android:padding="@dimen/spacing_xmlarge"
+                  android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:id="@+id/linearLayout">
+
+        <ImageView android:src="@drawable/logo_dalwa"
+                   android:layout_width="120dp" android:layout_height="120dp"/>
+
+        <ImageView android:src="@drawable/dalwa_tittle"
+                   android:layout_marginTop="-20dp"
+                   android:layout_marginBottom="@dimen/spacing_mlarge"
+                   android:layout_width="wrap_content" android:layout_height="65dp"/>
+
+        <Button android:id="@+id/btn_pembayaran"
+                android:background="@drawable/dalwa_pembayaran"
+                android:layout_width="match_parent" android:layout_height="65dp"/>
+
+        <Button android:id="@+id/btn_info"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:background="@drawable/dalwa_info"
+                android:layout_width="match_parent" android:layout_height="65dp"/>
+
+        <Button android:id="@+id/btn_produk"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:background="@drawable/dalwa_produk"
+                android:layout_width="match_parent" android:layout_height="65dp"/>
+
+    </LinearLayout>
+
+    <TextView android:id="@+id/lbl_api_url"
+              android:text="https://api.dalwa.ponpes.id"
+              android:textSize="9dp"
+              android:textColor="@color/grey_500"
+              android:layout_alignParentBottom="true"
+              android:layout_marginBottom="0dp"
+              android:gravity="bottom|center_horizontal"
+              android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+</RelativeLayout>

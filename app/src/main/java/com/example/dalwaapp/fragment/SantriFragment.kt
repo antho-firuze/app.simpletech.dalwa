@@ -9,7 +9,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import com.example.dalwaapp.*
-
+import com.example.dalwaapp.auth_activity.ChangePwdActivity
+import com.example.dalwaapp.helper.F
 import com.example.dalwaapp.model.tListSantri
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpPost
@@ -18,6 +19,8 @@ import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_santri.*
 import kotlinx.android.synthetic.main.list_santri.view.*
 import org.jetbrains.anko.design.snackbar
+import org.jetbrains.anko.indeterminateProgressDialog
+import org.jetbrains.anko.support.v4.indeterminateProgressDialog
 import org.json.JSONObject
 
 /**
@@ -28,13 +31,40 @@ class SantriFragment : Fragment() {
 
     private var santri: ArrayList<tListSantri> = ArrayList()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setHasOptionsMenu(true)
+    }
+
     override fun onResume() {
         super.onResume()
 
         if (isRefresh)
             loadData()
+    }
 
-//        Toast.makeText((activity as AppCompatActivity), "onResume", Toast.LENGTH_LONG).show()
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_santri, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.opt_add -> {
+                context?.startActivity(Intent(view?.context, AddSantriActivity::class.java))
+            }
+            R.id.opt_logout -> {
+                F().actionLogout((activity as AppCompatActivity))
+            }
+            R.id.opt_chgpwd -> {
+                context?.startActivity(Intent(context, ChangePwdActivity::class.java))
+            }
+            R.id.opt_profile -> {
+                context?.startActivity(Intent(context, ProfileActivity::class.java))
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -48,18 +78,18 @@ class SantriFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = ""
 
         loadData()
-
-        btn_add.setOnClickListener {
-            context?.startActivity(Intent(view?.context, AddSantriActivity::class.java))
-        }
     }
 
     private fun loadData() {
         if (!session!!.isLogin)
             return
 
+        val progressDialog = indeterminateProgressDialog(R.string.ajax_processing).apply { setCancelable(false) }
+        progressDialog.show()
+
         req = setRequest("wali.list_santri")
         URL_API.httpPost().body(req).responseJson { _, resp, res ->
+            progressDialog.dismiss()
             if (resp.data.isNotEmpty()) {
                 val (dataRes, _) = res
                 if (dataRes!!.obj().getBoolean("status")) {
@@ -79,11 +109,15 @@ class SantriFragment : Fragment() {
                     val builder = AlertDialog.Builder((activity as AppCompatActivity))
                     builder.setTitle("Error")
                     builder.setMessage(dataRes.obj().getString("message"))
-                    builder.setNeutralButton("OK") { dialog, which -> }
+                    builder.setNeutralButton("OK") { dialog, which ->
+                        if (!dataRes.obj().isNull("need_login")) {
+                            F().actionLogout((activity as AppCompatActivity))
+                        }
+                    }
                     builder.create().show()
                 }
             } else {
-                snackbar(main_layout, "Ajax Error: Request failed")
+                snackbar(main_layout, R.string.ajax_request_failed)
             }
         }
     }
@@ -105,18 +139,16 @@ class SantriFragment : Fragment() {
                 txt_nis.tag = r.partner_id
 
                 btn_bill.setOnClickListener {
-                    pubVar.put("partner_id", r.partner_id)
                     pubVar.put("nis", r.reg_no)
                     pubVar.put("name", r.full_name)
 
                     context?.startActivity(Intent(context, BillingActivity::class.java))
                 }
                 btn_transaction.setOnClickListener {
-                    pubVar.put("partner_id", r.partner_id)
                     pubVar.put("nis", r.reg_no)
                     pubVar.put("name", r.full_name)
 
-                    context?.startActivity(Intent(context, ProfileActivity::class.java))
+                    context?.startActivity(Intent(context, TransactionActivity::class.java))
                 }
             }
         }

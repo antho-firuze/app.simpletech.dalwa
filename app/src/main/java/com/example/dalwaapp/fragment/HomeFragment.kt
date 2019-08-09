@@ -12,6 +12,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.ImageView
 import com.example.dalwaapp.*
+import com.example.dalwaapp.auth_activity.ChangePwdActivity
+import com.example.dalwaapp.auth_activity.LoginActivity
+import com.example.dalwaapp.auth_activity.RegisterActivity
 import com.example.dalwaapp.helper.F
 import com.example.dalwaapp.model.tNews
 import com.github.kittinunf.fuel.android.extension.responseJson

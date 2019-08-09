@@ -35,11 +35,11 @@
                     android:orientation="vertical">
 
                 <TextView
-                        android:id="@+id/txt_desc"
+                        android:id="@+id/lbl_desc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="SPP - Jul 2019"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:textColor="@color/grey_90"/>
 
                 <TextView
@@ -47,16 +47,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Jatuh tempo 10 Juli 2019"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textSize="12dp"
                         android:textColor="@color/grey_60"/>
 
                 <TextView
-                        android:id="@+id/txt_amount"
+                        android:id="@+id/lbl_amount"
                         android:layout_marginTop="@dimen/spacing_medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rp 550.000"
-                        android:textSize="16dp"
+                        android:textSize="14dp"
                         android:textColor="@color/grey_60"/>
 
 

@@ -7,6 +7,16 @@
             android:icon="@drawable/ic_add"
             android:iconTint="@color/white"
             android:title="Tambah Santri"
-            app:showAsAction="always"/>
+            app:showAsAction="ifRoom"/>
 
+    <item
+            android:id="@+id/opt_chgpwd"
+            android:icon="@drawable/ic_person"
+            android:title="Ubah Password"
+            app:showAsAction="never"/>
+    <item
+            android:id="@+id/opt_logout"
+            android:icon="@drawable/ic_person"
+            android:title="Logout"
+            app:showAsAction="never"/>
 </menu>

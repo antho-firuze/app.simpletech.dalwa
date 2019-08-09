@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.*
 import android.widget.BaseExpandableListAdapter
+import android.widget.ExpandableListView
 import android.widget.TextView
 import com.example.dalwaapp.R
 import kotlinx.android.synthetic.main.fragment_faq.*
@@ -28,20 +29,55 @@ class FaqFragment : Fragment() {
             fragmentManager!!.getFragment(savedInstanceState, "FaqFragment")
 //            mContent = getSupportFragmentManager().getFragment(savedInstanceState, "FaqFragment");
         } else {
-            header.add("What is Lorem Ipsum?")
-            header.add("Where does it come from?")
-            header.add("Why do we use it?")
-            header.add("Where can I get some?")
-            body.add(mutableListOf("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."))
+            header.add("Mengapa saya tidak menerima email dari Aplikasi?")
+            header.add("Apakah password saya bisa di rubah?")
+            header.add("Mengapa di halaman pesantren masih kosong?")
+            header.add("Bagaimana saya mendapatkan NIS?")
+            header.add("Bagaimana saya melakukan pembayaran?")
+            header.add("Bagaimana saya melihat history pembayaran?")
+            header.add("Dimana Contact Centre Dalwa Mobile?")
+
             body.add(
                 mutableListOf(
-                    "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n" +
+                    "1. Selain folder Inbox, coba periksa juga folder kategori Social/Updates/Forums/Promotion \n" +
                             "\n" +
-                            "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
+                            "2. Periksa juga folder spam atau junk email, setelah itu buka email kemudian Klik 'Laporkan bukan spam' atau 'Report not spam' \n"
                 )
             )
-            body.add(mutableListOf("It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."))
-            body.add(mutableListOf("There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."))
+            body.add(
+                mutableListOf(
+                    "Bisa. Pada halaman pesantren, pilih menu 'Ubah Password' di sebelah kanan atas. \n"
+                )
+            )
+            body.add(
+                mutableListOf(
+                    "Karena anda belum menambahkan data santri pada menu plus di kanan atas. \n"
+                )
+            )
+            body.add(
+                mutableListOf(
+                    "Anda bisa menanyakan NIS (No. Induk Siswa) pada Ustadz Kamar atau santri sendiri. \n"
+                )
+            )
+            body.add(
+                mutableListOf(
+                    "Pada Halaman Pesantren. Klik tombol 'TAGIHAN' pada daftar siswa/santri masing-masing. \n"
+                )
+            )
+            body.add(
+                mutableListOf(
+                    "Pada Halaman Pesantren. Klik tombol 'TRANSAKSI' pada daftar siswa/santri masing-masing. \n"
+                )
+            )
+            body.add(
+                mutableListOf(
+                    "Sementara anda bisa menggunakan kontak dibawah ini: \n" +
+                    "\n" +
+                    "- Email: ahmad.firuze@gmail.com \n" +
+                    "\n" +
+                    "- WA: +62857-7797-4703 \n"
+                )
+            )
 
         }
     }
@@ -55,6 +91,48 @@ class FaqFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         elv.setAdapter(ExpandableListAdapter(context, header, body))
+        elv.layoutParams.height = 125 * header.size
+
+        elv.setOnGroupClickListener { parent, v, groupPosition, id ->
+            setListViewHeight(parent, groupPosition)
+            return@setOnGroupClickListener false
+        }
+    }
+
+    private fun setListViewHeight(parent: ExpandableListView?, group: Int) {
+        val listAdapter = parent!!.expandableListAdapter as ExpandableListAdapter
+        var totalHeight = 0
+        val desiredWidth = View.MeasureSpec.makeMeasureSpec(
+            parent.width,
+            View.MeasureSpec.EXACTLY
+        )
+        for (i in 0 until listAdapter.groupCount) {
+            val groupItem = listAdapter.getGroupView(i, false, null, parent)
+            groupItem!!.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED)
+
+            totalHeight += groupItem.measuredHeight
+
+            if (parent.isGroupExpanded(i) && i != group || !parent.isGroupExpanded(i) && i == group) {
+                for (j in 0 until listAdapter.getChildrenCount(i)) {
+                    val listItem = listAdapter.getChildView(
+                        i, j, false, null,
+                        parent
+                    )
+                    listItem!!.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED)
+
+                    totalHeight += listItem.measuredHeight
+
+                }
+            }
+        }
+
+        val params = parent.layoutParams
+        var height = totalHeight + parent.dividerHeight * (listAdapter.groupCount - 1)
+        if (height < 10)
+            height = 200
+        params.height = height
+        parent.layoutParams = params
+        parent.requestLayout()
     }
 
     class ExpandableListAdapter(

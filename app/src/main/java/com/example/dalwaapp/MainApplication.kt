@@ -1,9 +1,13 @@
 package com.example.dalwaapp
 
 import android.app.Application
+import android.content.Context
+import android.support.v7.app.AppCompatActivity
 import com.example.dalwaapp.helper.Session
 import io.realm.Realm
 import io.realm.RealmConfiguration
+import org.jetbrains.anko.AnkoContext
+import org.jetbrains.anko.indeterminateProgressDialog
 import org.json.JSONObject
 import java.text.DecimalFormat
 import java.text.NumberFormat
@@ -30,9 +34,11 @@ const val EUROPE_DATE_FORMAT = "dd.MM.yyyy"
 const val IDN_DATE_FORMAT = "dd-MM-yyyy"
 const val FORM_DATE_FORMAT = "dd-MMM-yyyy"
 
+const val ANSI_0_DATETIME_FORMAT = "yyyy-MM-dd HH:mm"  // 2018-01-15 21:35
 const val ANSI_DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss"  // 2018-01-15 21:35:00
 const val ANSI_DATETIME_FORMAT_WITH_MS = "yyyy-MM-dd HH:mm:ss.SSS"  // 2015-01-01 00:00:00.000
 const val IDN_DATETIME_FORMAT = "dd-MM-yyyy HH:mm:ss"
+const val FORM_0_DATETIME_FORMAT = "dd-MMM-yyyy HH:mm"
 const val FORM_DATETIME_FORMAT = "dd-MMM-yyyy HH:mm:ss"
 const val JAVA_DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 
@@ -43,8 +49,9 @@ const val JAVA_DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 //var JavaDateTimeFmt = SimpleDateFormat(JAVA_DATETIME_FORMAT)
 //var AnsiDateTimeFmt = SimpleDateFormat(ANSI_DATETIME_FORMAT)
 
-val URL_API = "http://192.168.1.33:5050"
 //val URL_API = "http://192.168.43.72:5050"
+//val URL_API = "http://192.168.1.33:5050"
+val URL_API = "https://api.kenziotech.com"
 val AGENT = "android"
 val APPCODE = "dalwa.app"
 val LANG = "id"
@@ -76,10 +83,10 @@ fun setRequest(method: String, params: Map<Any, Any> = emptyMap()): String {
 
 class MainApplication : Application() {
 
-//    companion object {
+    companion object {
 //        var isRefresh = false
 //        var session: Session? = null
-//    }
+    }
 
     override fun onCreate() {
         super.onCreate()

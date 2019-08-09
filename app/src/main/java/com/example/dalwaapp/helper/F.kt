@@ -1,5 +1,9 @@
 package com.example.dalwaapp.helper
 
+import android.content.Context
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
+import android.support.v7.app.AppCompatActivity
 import android.util.Patterns
 import com.example.dalwaapp.*
 import com.github.kittinunf.fuel.android.extension.responseJson
@@ -82,8 +86,13 @@ class F {
         return diff
     }
 
-    fun actionLogout() {
+    fun actionLogout(ctx: Context?) {
         session!!.isLogin = false
+        session!!.username = ""
+        session!!.token = ""
+
+        ctx?.startActivity(Intent(ctx, Main2Activity::class.java))
+        (ctx as AppCompatActivity).finish()
 
         req = setRequest("auth.logout")
         URL_API.httpPost().body(req).responseJson { _, _, _ -> }
@@ -99,8 +108,20 @@ class F {
 
 }
 
-// NOTE:
-//
+//lbl_created_date.text = "${SimpleDateFormat(FORM_0_DATETIME_FORMAT).format(F().stringToDateTime(r.created_at))} WIB"
+//val DateTimeStamp = SimpleDateFormat("yyyy-MM-dd 11:00:00").format(Date())
+
+// NOTE: (ACTIVITY)
+//=================
+//builder.setNeutralButton("OK") { dialog, which ->
+//    val needLogin = dataRes.obj().getString("need_login")
+//    if (needLogin.isNotEmpty()) {
+//        F().actionLogout(this)
+//    }
+//}
+
+// NOTE: (FRAGMENT)
+//=================
 //(activity as AppCompatActivity)       <===      context for fragment
 
 //var selectedRows2: MutableMap<Int, Number> = mutableMapOf()
@@ -108,4 +129,9 @@ class F {
 //selectedRows2.remove(k)
 //val ttlAmount2 = selectedRows2.map { it.value.toDouble() }.sum()
 
-//val DateTimeStamp = SimpleDateFormat("yyyy-MM-dd 11:00:00").format(Date())
+//builder.setNeutralButton("OK") { dialog, which ->
+//    val needLogin = dataRes.obj().getString("need_login")
+//    if (needLogin.isNotEmpty()) {
+//        F().actionLogout((activity as AppCompatActivity))
+//    }
+//}

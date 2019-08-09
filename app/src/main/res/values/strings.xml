@@ -1,6 +1,12 @@
 <resources>
-    <string name="app_name">DalwaApp</string>
+    <string name="app_name">Dalwa Mobile</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ajax_request_failed">Maaf, telah terjadi gangguan pada koneksi</string>
+    <string name="ajax_processing">Sedang Proses...</string>
+    <string name="dalwa_pembayaran">Dalwa Pembayaran</string>
+    <string name="dalwa_info">Dalwa Info</string>
+    <string name="dalwa_produk">Dalwa Produk</string>
+    <string name="menu_underconstruction">Mohon maaf, menu ini belum di fungsikan</string>
 </resources>

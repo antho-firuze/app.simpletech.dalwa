@@ -7,7 +7,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".RegisterActivity">
+        tools:context=".auth_activity.RegisterActivity">
 
     <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
                                        android:theme="@style/ToolbarTheme"
@@ -33,7 +33,7 @@
 
             <ImageView android:id="@+id/btn_add"
                        android:src="@drawable/ic_send"
-                       android:padding="6dp"
+                       android:padding="15dp"
                        android:layout_width="?attr/actionBarSize"
                        android:layout_height="?attr/actionBarSize"/>
 

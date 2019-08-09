@@ -4,9 +4,10 @@
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ChangePwdActivity">
+        tools:context=".auth_activity.ChangePwdActivity">
 
     <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -38,7 +39,7 @@
                                                        android:layout_height="wrap_content"
                                                        app:passwordToggleEnabled="true">
 
-            <EditText android:id="@+id/txt_pass_old"
+            <EditText android:id="@+id/txt_old_pass"
                       android:hint="Password Lama"
                       android:imeOptions="actionDone"
                       android:inputType="textPassword"
@@ -64,7 +65,7 @@
                                                        android:layout_height="wrap_content"
                                                        app:passwordToggleEnabled="true">
 
-            <EditText android:id="@+id/txt_pass_confirm"
+            <EditText android:id="@+id/txt_new_pass_confirm"
                       android:hint="Konfirmasi Password Baru"
                       android:imeOptions="actionDone"
                       android:inputType="textPassword"

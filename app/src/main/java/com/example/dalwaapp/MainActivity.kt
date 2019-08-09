@@ -14,25 +14,25 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val fragmentHome: Fragment = HomeFragment()
+//    val fragmentHome: Fragment = HomeFragment()
     val fragmentSantri: Fragment = SantriFragment()
     val fragmentFaq: Fragment = FaqFragment()
-    var activeFragment: Fragment = fragmentHome
+    var activeFragment: Fragment = fragmentSantri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragmentSantri, "3").hide(fragmentSantri).commit()
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragmentFaq, "4").hide(fragmentFaq).commit()
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragmentHome, "1").commit()
+        supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragmentSantri, "1").commit()
+        supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragmentFaq, "2").hide(fragmentFaq).commit()
+//        supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragmentHome, "1").hide(fragmentHome).commit()
 
         navigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home -> {
-                    supportFragmentManager.beginTransaction().hide(activeFragment).show(fragmentHome).commit()
-                    activeFragment = fragmentHome
-                }
+//                R.id.nav_home -> {
+//                    supportFragmentManager.beginTransaction().hide(activeFragment).show(fragmentHome).commit()
+//                    activeFragment = fragmentHome
+//                }
                 R.id.nav_profile_santri -> {
                     supportFragmentManager.beginTransaction().hide(activeFragment).show(fragmentSantri).commit()
                     activeFragment = fragmentSantri
@@ -44,6 +44,8 @@ class MainActivity : AppCompatActivity() {
             }
             return@setOnNavigationItemSelectedListener true
         }
+
+        navigation.menu.getItem(1).isChecked = true
     }
 
 }

@@ -29,4 +29,8 @@ class Session(ctx: Context) {
     var login_id: Int
         get() = pref.getInt("login_id", 0)
         set(value) = pref.edit().putInt("login_id", value).apply()
+
+    var username: String
+        get() = pref.getString("username", "")
+        set(value) = pref.edit().putString("username", value).apply()
 }
